@@ -1,0 +1,7 @@
+id=blockfrpwriting
+name=Block FRP Writing on SM-T825c
+version=v0.0.0.1
+versionCode=1
+author=Shun
+description=Preventing Google Play Service from writing FRP(Persistent) partition, achieving the same effect as OEM Unlocking.
+minMagisk=1500

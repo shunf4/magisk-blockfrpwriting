@@ -3,6 +3,14 @@
 ---
 # **Block FRP Writing on SM-T825c**
 ## Description
+Some devices like Samsung SM-T825c, does not have the option `OEM Unlocking` in Development Settings, disabling users to stay rooted while having their Google Account signed in. There are two solutions:
+
+- Don't use the stock Google Play Services Core. Use [microG](https://microg.org/) instead.
+
+- Block FRP status writing by `com.android.google.gms` after adding Google Accounts at each reboot.
+
+  This Magisk module is the latter one. It can:
+
 - Execute a script every booting-up. It can re-write the partition named *persistent* which contains FRP information written by Google Play Service, so that FRP will not automatically turn on.
 - Tweak `framework-res.apk` (of SM-T825c firmware `T825CZHU1ARA2`) to remove `com.google.android.gms` from `config_persistentDataPackageName`, preventing Google Play Service from writing FRP partition.
 ## Changelog

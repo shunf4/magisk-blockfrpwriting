@@ -31,7 +31,7 @@ PROPFILE=false
 POSTFSDATA=false
 
 # Set to true if you need late_start service script
-LATESTARTSERVICE=false
+LATESTARTSERVICE=true
 
 ##########################################################################################
 # Installation Message
@@ -41,7 +41,7 @@ LATESTARTSERVICE=false
 
 print_modname() {
   ui_print "*******************************"
-  ui_print "     Magisk Module Template    "
+  ui_print "       Block FRP Writing       "
   ui_print "*******************************"
 }
 
@@ -98,19 +98,17 @@ set_permissions() {
 # Make update-binary as clean as possible, try to only do function calls in it.
 
 backup_persistent(){
-  ui_print "- Backup persistent partition to $INSTALLER/common/...."
-  dd if=/dev/block/bootdevice/by-name/persistent of=$INSTALLER/common/persistent-backup.img
+  ui_print " -- Backup persistent partition to $MODPATH/common/...."
+  mkdir -p $MODPATH/common/
+  dd if=/dev/block/bootdevice/by-name/persistent of=$MODPATH/common/persistent-backup.img
 }
 
 check_external_sd_framework_res_replacement(){
-  ui_print "- Checking if /external_sd/framework-res/framework-res.apk exists..."
+  ui_print " -- Checking if /external_sd/framework-res/framework-res.apk exists..."
   if [ -f /external_sd/framework-res/framework-res.apk ]; then
     cp -af /external_sd/framework-res/framework-res.apk $INSTALLER/system/framework/framework-res.apk
-    ui_print "  Yes and replaced";
+    ui_print "    Yes and replaced";
   else
-    ui_print "  No and T825CZHU1ARA2 framework-res.apk left intact";
+    ui_print "    No and T825CZHU1ARA2 framework-res.apk left intact";
   fi
 }
-
-backup_persistent
-check_external_sd_framework_res_replacement

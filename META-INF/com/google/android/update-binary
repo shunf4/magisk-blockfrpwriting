@@ -109,7 +109,7 @@ ui_print "- Extracting module files"
 
 # ADD: START
 backup_persistent
-check_external_sd_framework_res_replacement
+check_sdcard_framework_res_replacement
 # ADD: END
 
 unzip -o "$ZIP" 'system/*' -d $MODPATH >&2

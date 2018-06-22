@@ -103,10 +103,10 @@ backup_persistent(){
   dd if=/dev/block/bootdevice/by-name/persistent of=$MODPATH/common/persistent-backup.img
 }
 
-check_external_sd_framework_res_replacement(){
-  ui_print " -- Checking if /external_sd/framework-res/framework-res.apk exists..."
-  if [ -f /external_sd/framework-res/framework-res.apk ]; then
-    cp -af /external_sd/framework-res/framework-res.apk $INSTALLER/system/framework/framework-res.apk
+check_sdcard_framework_res_replacement(){
+  ui_print " -- Checking if /sdcard/framework-res/framework-res.apk exists..."
+  if [ -f /sdcard/framework-res/framework-res.apk ]; then
+    cp -af /sdcard/framework-res/framework-res.apk $INSTALLER/system/framework/framework-res.apk
     ui_print "    Yes and replaced";
   else
     ui_print "    No and T825CZHU1ARA2 framework-res.apk left intact";

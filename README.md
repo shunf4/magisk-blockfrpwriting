@@ -1,4 +1,7 @@
 # **Block FRP Writing on SM-T825c**
+
+A better solution: https://github.com/shunf4/StopTouchingMyFrp
+
 ## Description
 Some devices like Samsung SM-T825c, does not have the option `OEM Unlocking` in Development Settings, disabling users to stay rooted while having their Google Account signed in. There are two solutions:
 
